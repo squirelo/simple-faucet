@@ -111,16 +111,16 @@ $(document).ready(function() {
 	$("#network_id").text(networkID);
 
 	if (typeof web3 !== 'undefined') {
-		web3Provider = web3.currentProvider;
+		web3Provider = new web3.currentProvider;
 	}
 
 	web3 = new Web3(web3Provider);
 
 	$.getJSON('json/erc20.json', function(data) {
-		contract_token = web3.eth.contract(data).at(token_address);
+		contract_token = new web3.eth.contract(data).at(token_address);
 	});
 	$.getJSON('json/faucet.json', function(data) {
-		contract_faucet = web3.eth.contract(data).at(faucet_address);
+		contract_faucet = new web3.eth.contract(data).at(faucet_address);
 	});
 
 	setTimeout(function(){ initialize(); }, 1000);
