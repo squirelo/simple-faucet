@@ -3,14 +3,14 @@ $(document).ready(function() {
 	//////////////////////////////////////////////////////////////////////////////
 	////     INSERT YOUR NODE RPC URL, NETWORK ID AND GAS PRICE HERE        //////
 	//////////////////////////////////////////////////////////////////////////////
-	var rpcURL = "http://your-fancy-node-url:8545";
-	var networkID = 12345;
-	var minGasPrice = 0;
+	var rpcURL = "https://rpc-mainnet.matic.network";
+	var networkID = 137;
+	var minGasPrice = 10;
 	//////////////////////////////////////////////////////////////////////////////
 	////     INSERT THE TOKEN AND FAUCET ADDRESS HERE                       //////
 	//////////////////////////////////////////////////////////////////////////////
-	var token_address = '0x0000000000000000000000000000000000000000';
-	var faucet_address = '0x0000000000000000000000000000000000000000';
+	var token_address = '0xb91c05cf30a973a58295c8db9248d0911cf091e5';
+	var faucet_address = '0xb91c05cf30a973a58295c8db9248d0911cf091e5';
 	//////////////////////////////////////////////////////////////////////////////
 
 	var account;
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 	function setAccount() {
 		web3.version.getNetwork(function(err, netId) {
-			if (!err && netId == networkID) { 
+			if (!err && netId == networkID) {
 				$("#wrong_network").fadeOut(1000);
 				setTimeout(function(){ $("#correct_network").fadeIn(); $("#faucet").fadeIn(); }, 1000);
 				account = web3.eth.accounts[0];
@@ -42,7 +42,7 @@ $(document).ready(function() {
 						$('#balanceETH').show();
 					}
 				});
-			} 
+			}
 		});
 	}
 
@@ -82,7 +82,7 @@ $(document).ready(function() {
 										$("#warning").html("Sorry - you can only request tokens every " + (result)/60 + " minutes. Please wait!")
 									}
 								});
-							}	
+							}
 						}
 					});
 				}
